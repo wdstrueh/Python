@@ -1,0 +1,51 @@
+'''
+Created on Nov 3, 2017
+
+@author: Will Strueh
+'''
+import random
+from random import randint
+def main():
+    rang = False
+    play = True
+    while play == True:
+        randin=[" Console Scrub"," Do you even guess bro"," Do you live under a rock",
+                        " Guess whose wrong. It's you",
+                        " Might as well just give up now you will never guess it"]
+        while rang == False:
+            gue=False
+            num = int(input("Enter a number to random generate between \n"))
+            if num < 1:
+                print("Invalid Input!")
+            elif num > 1:
+                randnum = randint(1, num)
+                rang = True
+            else:
+                print("Invalid Input!")
+                
+        while gue == False:
+            guess = int(input("Enter your guess \n"))
+        
+            if guess > randnum:
+                if guess > num:
+                    print("Incorrect INVALID INPUT! Must be in user defined range " + random.choice(randin))
+                else:
+                    print("You're too high. Try guessing lower. " + random.choice(randin))
+                    
+            elif guess < randnum:
+                if guess > num:
+                    print("Incorrect INVALID INPUT! Must be in user defined range " + random.choice(randin))
+                else:
+                    print("You're too low. Try guessing higher. " + random.choice(randin))
+                    
+            elif guess == randnum:
+                print("You're correct. Contragulations")
+                gue = True
+                
+                again = str(input("Would like to play again. \n"))
+                if again.lower() == "yes":
+                    rang = False
+                elif again.lower() == "no":
+                    play = False
+if __name__ == '__main__':
+    main()
