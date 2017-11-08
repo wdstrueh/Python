@@ -11,41 +11,41 @@ def main():
     while play == True:
         randin=[" Console Scrub"," Do you even guess bro"," Do you live under a rock",
                         " Guess whose wrong. It's you",
-                        " Might as well just give up now you will never guess it"]
+                        " Might as well just give up now you will never guess it"] #list of insults to randomly choose from
         while rang == False:
             gue=False
-            num = int(input("Enter a number to random generate between \n"))
-            if num < 1:
+            num = int(input("Enter a number to random generate between \n")) #Prints a prompted message. Takes users input in response to the prompt instead of using a scanner
+            if num < 1: #if num is less the one run this statement because range cannot start a zero
                 print("Invalid Input!")
-            elif num > 1:
-                randnum = randint(1, num)
+            elif num > 1: #else if num is greater than one run this statement
+                randnum = randint(1, num)#randomly generate a number from 1 to the user to defined max. this built-in command randint is used in Python instead of random.Math() which is in Java
                 rang = True
-            else:
+            else: #if it is not a number
                 print("Invalid Input!")
                 
         while gue == False:
-            guess = int(input("Enter your guess \n"))
+            guess = int(input("Enter your guess \n")) #Prints prompted message. Takes users input as the guess for the random number
         
-            if guess > randnum:
-                if guess > num:
+            if guess > randnum: #if the guess is greater then the random number (randmun) run through this statement
+                if guess > num: #if guess is greater then the user defined max run this statement
                     print("Incorrect INVALID INPUT! Must be in user defined range " + random.choice(randin))
-                else:
+                else: #else run this statement if the guess is with in the range but is too low of a guess
                     print("You're too high. Try guessing lower. " + random.choice(randin))
                     
-            elif guess < randnum:
-                if guess > num:
+            elif guess < randnum: #if guess is less than the random number (randnum) run through this statement
+                if guess > num: #if guess is greater then the user defined max run this statement
                     print("Incorrect INVALID INPUT! Must be in user defined range " + random.choice(randin))
-                else:
+                else: #else run this statement if the guess is with in the range but is too high of a guess
                     print("You're too low. Try guessing higher. " + random.choice(randin))
                     
-            elif guess == randnum:
-                print("You're correct. Contragulations")
-                gue = True
+            elif guess == randnum: #of the guess equals the random number (randnum) run through this statement
+                print("You're correct. Congratulations!")
+                gue = True #sets guess loop to true to end it's loop if guess is correct
                 
-                again = str(input("Would like to play again. \n"))
-                if again.lower() == "yes":
-                    rang = False
-                elif again.lower() == "no":
-                    play = False
+                again = str(input("Would like to play again. \n")) #Prints prompted message. Reads user input to see if they want to play again
+                if again.lower() == "yes": #if player wants to play again they type yes away into the console if the want to play again 
+                    rang = False #sets the choosing of an array while statement to False so the user can play again with a different maximum range
+                elif again.lower() == "no": #if player wants to not play again they type no away into the console if the want to not play again 
+                    play = False #sets the first while loop to False instead of True to terminate the program smoothly
 if __name__ == '__main__':
     main()
